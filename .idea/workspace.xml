@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88e22a4c-948f-41ce-b99d-563dbdfdd0e3" name="Changes" comment="Add ScreenshotMaker">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ScreenshotMaker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/java/BatikPictures.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/java/Bin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/java/EmbroideredPictures.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/java/SearchPicture.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/RunnerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testng.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="88e22a4c-948f-41ce-b99d-563dbdfdd0e3" name="Changes" comment="Add allure and ScreenshotMaker">
+      <change afterPath="$PROJECT_DIR$/images/checkSearchingPicture_chrome.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/checkSearchingPicture_firefox.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/TestAllureListeners.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ScreenshotMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ScreenshotMaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/java/SearchPicture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/java/SearchPicture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RunnerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RunnerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +29,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="d8dc4700-fd4e-4e71-ac85-f1214634761a" />
+        <option name="url" value="https://github.com/11alexey11/testNG.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -101,21 +112,20 @@
       <option name="presentableId" value="Default" />
       <updated>1679415587895</updated>
     </task>
+    <task id="LOCAL-00001" summary="Add ScreenshotMaker">
+      <created>1680025747408</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1680025747408</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add parallel tests" />
     <MESSAGE value="Add ScreenshotMaker" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add ScreenshotMaker" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.io.IOException" package="java.io" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Add allure and ScreenshotMaker" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add allure and ScreenshotMaker" />
   </component>
 </project>

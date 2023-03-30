@@ -1,9 +1,10 @@
+import io.qameta.allure.Allure;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 
@@ -17,6 +18,11 @@ public class ScreenshotMaker {
     public void takeScreenshot(String name) throws IOException {
         TakesScreenshot screenshot = (TakesScreenshot)driver;
         File src = screenshot.getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(src, new File(String.format("images/%s_%s.png", name, ((RemoteWebDriver) driver).getCapabilities().getBrowserName())));
+        FileUtils.copyFile(src, new File(String.format("images/%s.png", name)));
+    }
+
+    public void getScreenshot() {
+        byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+        Allure.addAttachment("Failure", new ByteArrayInputStream(screenshot));
     }
 }

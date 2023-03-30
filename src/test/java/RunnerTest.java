@@ -1,8 +1,10 @@
+
+import io.qameta.allure.Description;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.ITestResult;
 import org.testng.annotations.*;
 
+@Listeners({ TestAllureListeners.class })
 public class RunnerTest extends Driver {
     protected Driver driver;
     private WebDriver webDriver;
@@ -16,35 +18,27 @@ public class RunnerTest extends Driver {
         webDriverWait = Driver.getWebDriverWait();
     }
 
-    @AfterMethod
-    public void takeScreenshotFailTest(ITestResult result) {
-        if (ITestResult.FAILURE == result.getStatus()) {
-            try {
-                ScreenshotMaker screenshotMaker = new ScreenshotMaker(webDriver);
-                screenshotMaker.takeScreenshot(result.getName());
-            } catch (Exception e) {
-                System.out.println("Exception while taking screenshot");
-            }
-        }
-    }
-
-    @AfterMethod(dependsOnMethods = "takeScreenshotFailTest")
+    @AfterMethod()
     public void quit() {
         webDriver.quit();
     }
 
-    @Test
+    @Description("Check picture name")
+    @Test(priority = 1)
     public void checkPictureName() {
         EmbroideredPictures embroideredPictures = new EmbroideredPictures(webDriver, webDriverWait);
         embroideredPictures.checkPictureName("Трамвайный путь");
     }
-    @Test
+
+    @Description("Check picture style")
+    @Test(priority = 2)
     public void checkPictureStyle() {
         EmbroideredPictures embroideredPictures = new EmbroideredPictures(webDriver, webDriverWait);
         embroideredPictures.checkPictureStyle("Реализм", "Трамвайный путь");
     }
 
-    @Test
+    @Description("Check definite item in favorites")
+    @Test(priority = 3)
     public void checkDefiniteItemInFavorites() {
         BatikPictures batikPictures = new BatikPictures(webDriver);
         batikPictures.moveToBatikPictures();
@@ -52,13 +46,15 @@ public class RunnerTest extends Driver {
         batikPictures.checkSavingToFavorites();
     }
 
-    @Test
+    @Description("Check picture by searching")
+    @Test(priority = 4)
     public void checkSearchingPicture() {
-        SearchPicture searchPicture = new SearchPicture(webDriver, webDriverWait);
-        searchPicture.checkSearchingPicture("Жираф");
+            SearchPicture searchPicture = new SearchPicture(webDriver, webDriverWait);
+            searchPicture.checkSearchingPicture("Жираф");
     }
 
-    @Test
+    @Description("Check definite item in bin")
+    @Test(priority = 5)
     @Parameters("name")
     public void checkDefiniteItemInBin(String name) {
         Bin bin = new Bin(webDriver);
