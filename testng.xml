@@ -4,6 +4,7 @@
     <test name="Chrome test">
         <parameter name="browser" value="chrome" />
         <parameter name="name" value="Ювелирное искусство" />
+        <parameter name="size" value="3" />
         <classes>
             <class name="RunnerTest" />
         </classes>
@@ -11,6 +12,7 @@
     <test name="Firefox test">
         <parameter name="browser" value="firefox" />
         <parameter name="name" value="Ювелирное искусство" />
+        <parameter name="size" value="3" />
         <classes>
             <class name="RunnerTest" />
         </classes>

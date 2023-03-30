@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88e22a4c-948f-41ce-b99d-563dbdfdd0e3" name="Changes" comment="Add allure and ScreenshotMaker">
-      <change afterPath="$PROJECT_DIR$/images/checkSearchingPicture_chrome.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/checkSearchingPicture_firefox.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TestAllureListeners.java" afterDir="false" />
+    <list default="true" id="88e22a4c-948f-41ce-b99d-563dbdfdd0e3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/pages/java/BasePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/java/BinPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/java/FavoritePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/java/MainPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/java/PicturesPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ScreenshotMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ScreenshotMaker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/java/SearchPicture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/java/SearchPicture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/RunnerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RunnerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/testng.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680025747408</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add allure and ScreenshotMaker">
+      <created>1680172737636</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680172737636</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

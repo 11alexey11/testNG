@@ -1,0 +1,1 @@
+{"uuid":"bfa951fc-8369-4d68-985d-6dd1f7d7e998","name":"RunnerTest.quit","children":["b09ceee0-7f3d-4df0-ae36-a4e65beccd17"],"description":"","befores":[],"afters":[{"name":"quit","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1680186576777,"stop":1680186577917}],"start":1680186576777,"stop":1680186577917}
