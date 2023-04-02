@@ -2,6 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,6 +16,7 @@ public class BasePage {
     public BasePage(WebDriver webDriver, WebDriverWait webDriverWait) {
         driver = webDriver;
         wait = webDriverWait;
+        PageFactory.initElements(webDriver, this);
     }
 
     protected Actions getActions() {
@@ -33,12 +35,12 @@ public class BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public void waitElementsToBeVisible(By xPath) {
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(xPath));
+    public void waitElementsToBeVisible(List<WebElement> elements) {
+        wait.until(ExpectedConditions.visibilityOfAllElements(elements));
     }
 
-    public void waitElementToBeVisible(By xPath) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(xPath));
+    public void waitElementToBeVisible(WebElement element) {
+        wait.until(ExpectedConditions.visibilityOf(element));
     }
 
     public  void waitElementAttributeToBe(WebElement element, String attribute, String value) {

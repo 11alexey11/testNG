@@ -1,13 +1,42 @@
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PicturesPage extends BasePage {
+    @FindBy(xpath = "//div[@class='post']//div[@class='ssize' and text()='Трамвайный путь']")
+    List<WebElement> tramTrackPictures;
+
+    @FindBy(xpath = "//div[@class='post']//div[@class='ssize']")
+    List<WebElement> pictures;
+
+    @FindBy(xpath = "//div[@class='price' and @itemprop='offers']")
+    List<WebElement> prices;
+
+    @FindBy(xpath = "//div[text()=' Купить']")
+    List<WebElement> buyBtns;
+
+    @FindBy(xpath = "//div[@class='post']//div[@class='ssize' and text()='Трамвайный путь']/../..")
+    WebElement tramTrackPictureBtn;
+
+    @FindBy(xpath = "//div[@class='txtline lft']//span[contains(text(), 'Стиль')]/following-sibling::node()")
+    WebElement pictureStyle;
+
+    @FindBy(xpath = "//div[@class='heart']")
+    List<WebElement> favoriteBtns;
+
+    @FindBy(xpath = "//span[@class='fvtico']")
+    WebElement favoriteBtn;
+
+    @FindBy(xpath = "//span[@class='basketico']")
+    WebElement binBtn;
+
+    @FindBy(xpath = "//button[@class='continue']")
+    WebElement continueBtn;
 
     public static String expectedPictureName;
     static List<String> expectedPictureNames = new ArrayList<>();
@@ -18,67 +47,65 @@ public class PicturesPage extends BasePage {
 
     @Step(value = "Check number of pictures by name")
     public Integer checkNumberPictures(String name) {
-        By xPath = By.xpath("//div[@class='post']//div[@class='ssize']");
-        waitElementsToBeVisible(xPath);
-        List<WebElement> pictures = findElements(String.format("//div[@class='post']//div[@class='ssize' and text()='%s']", name));
+        List<WebElement> pictures = null;
+        if (name.equals("Трамвайный путь")) {
+            pictures = tramTrackPictures;
+        }
+        waitElementsToBeVisible(pictures);
         return pictures.size();
     }
 
     @Step(value = "Click picture")
     public void clickPicture(String name) {
-        By xPath = By.xpath("//div[@class='post']//div[@class='ssize']");
-        waitElementsToBeVisible(xPath);
-        WebElement picture = findElement(String.format("//div[@class='post']//div[@class='ssize' and text()='%s']/../..", name));
-        waitElementToBeClickable(picture);
-        picture.click();
+        WebElement pictureBtn = null;
+        if (name.equals("Трамвайный путь")) {
+            pictureBtn = tramTrackPictureBtn;
+        }
+        waitElementsToBeVisible(pictures);
+        waitElementToBeClickable(pictureBtn);
+        pictureBtn.click();
     }
 
     @Step(value = "Check picture style")
     public String checkPictureStyle() {
-        WebElement pictureStyle = findElement("//div[@class='txtline lft']//span[contains(text(), 'Стиль')]/following-sibling::node()");
         return pictureStyle.getText();
     }
 
     @Step(value = "Add picture to favorite")
     public void addPictureToFavorite() {
-        expectedPictureName = findElement("//div[@class='post']//div[@class='ssize']").getText();
-        WebElement favoriteBtn = findElements("//div[@class='heart']").get(0);
+        expectedPictureName = pictures.get(0).getText();
+        WebElement favoriteBtn = favoriteBtns.get(0);
         waitElementToBeClickable(favoriteBtn);
         favoriteBtn.click();
     }
 
     @Step(value = "Move to favorite page")
     public void moveToFavoritePage() {
-        WebElement favoriteBtn = findElement("//span[@class='fvtico']");
         waitElementToBeClickable(favoriteBtn);
         favoriteBtn.click();
     }
 
     @Step(value = "Check first picture name")
     public String actualFirstPictureName() {
-        return findElement("//div[@class='post']//div[@class='ssize']").getAttribute("textContent");
+        return pictures.get(0).getAttribute("textContent");
     }
 
     @Step(value = "Add picture to bin")
     public void addPictureToBin(Integer size) {
-        List<WebElement> pictureNames = findElements("//div[@class='post']//div[@class='ssize']");
-        List<WebElement> picturePrices = findElements("//div[@class='price' and @itemprop='offers']");
-        List<WebElement> buyBtns = findElements("//div[@class='post']//div[@class='oclick' and text()=' Купить']");
         expectedPicturePrices.clear();
         expectedPictureNames.clear();
+        List<WebElement> buyBtns = findElements("//div[@class='post']//div[@class='oclick' and text()=' Купить']");
         for (int i = 0; i < size; i++) {
-            expectedPictureNames.add(i, pictureNames.get(i).getAttribute("textContent"));
-            expectedPicturePrices.add(i, picturePrices.get(i).getText());
+            expectedPictureNames.add(i, pictures.get(i).getAttribute("textContent"));
+            expectedPicturePrices.add(i, prices.get(i).getText());
             buyBtns.get(i).click();
-            WebElement continueButton = findElement("//button[@class='continue']");
-            waitElementToBeClickable(continueButton);
-            continueButton.click();
+            waitElementToBeClickable(continueBtn);
+            continueBtn.click();
         }
     }
 
     @Step(value = "Move to bin page")
     public void moveToBinPage() {
-        WebElement binBtn = findElement("//span[@class='basketico']");
         waitElementToBeClickable(binBtn);
         binBtn.click();
     }

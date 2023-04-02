@@ -1,12 +1,18 @@
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 import java.util.Optional;
 
 public class BinPage extends BasePage {
+    @FindBy(xpath = "//div[@class='c_name' and not(contains(text(), 'Автор: '))]")
+    List<WebElement> pictureNames;
+
+    @FindBy(xpath = "//div[@class='shop']//div[@class='price']")
+    List<WebElement> picturePrices;
 
     public BinPage(WebDriver webDriver, WebDriverWait webDriverWait) {
         super(webDriver, webDriverWait);
@@ -17,10 +23,10 @@ public class BinPage extends BasePage {
         int actualMatchesNames = 0;
         int actualMatchesPrices = 0;
         int pictureCount = expectedNames.size();
-        List<WebElement> pictureNames = findElements("//div[@class='c_name']");
 
         for (int i = 0; i < pictureCount; i++) {
             String expectedPictureName = expectedNames.get(i);
+            System.out.println(pictureNames.get(i).getAttribute("textContent"));
             Optional<WebElement> obj = pictureNames.stream()
                     .filter(element -> expectedPictureName.contains(element.getAttribute("textContent"))).findFirst();
             if (obj.isPresent()) {
@@ -29,7 +35,7 @@ public class BinPage extends BasePage {
         }
 
         if (actualMatchesNames == pictureCount) {
-            List<WebElement> picturePrices = findElements("//div[@class='shop']//div[@class='price']");
+            System.out.println("Я тут");
 
             for (int i = 0; i < pictureCount; i++) {
                 String expectedPicturePrice = expectedPrices.get(i);
